@@ -17,7 +17,7 @@ function axelerant_custom_node_json_output($nid) {
     // Load the node.
     $node = node_load($nid);
     // We need to display json only if the content type is page.
-    if ($node->type == "page") {
+    if (isset($node->type) && $node->type == "page") {
       // Json encode the node.
       $json = drupal_json_encode($node);
       // Return the json to handle it in the jquery.
